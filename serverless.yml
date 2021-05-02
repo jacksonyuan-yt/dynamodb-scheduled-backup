@@ -15,9 +15,13 @@ functions:
   backupDB:
     handler: src/backup.handler
     name: backup-dynamodb
+    description: A scheduled lambda that performs a database backup for a DynamoDB table.
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
       - schedule: rate(3 minutes)
+      # as mentioned in the tutorial, the following formats also work:
+      # cron(minute hour day-of-month month day-of-week year) # time is in UTC as per Lambda specs
+      # `rate(value unit)` e.g. rate(1 day) or rate(2 days) for plural
     environment:
       DYNAMODB_TABLE_NAME: important-data
