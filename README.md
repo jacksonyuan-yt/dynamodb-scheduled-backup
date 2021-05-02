@@ -1,0 +1,1 @@
+# DynamoDB Scheduled Backup using AWS Lambda and Serverless Framework
