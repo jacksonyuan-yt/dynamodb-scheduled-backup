@@ -1,0 +1,23 @@
+service: dynamo-scheduled-backup
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-west-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:CreateBackup"
+      Resource: "*"
+
+functions:
+  backupDB:
+    handler: src/backup.handler
+    name: backup-dynamodb
+    memorySize: 128 # mb
+    timeout: 5 # seconds
+    events:
+      - schedule: rate(3 minutes)
+    environment:
+      DYNAMODB_TABLE_NAME: important-data

@@ -1,0 +1,14 @@
+{
+  "name": "dynamodb-scheduled-backup",
+  "version": "1.0.0",
+  "description": "Serverless application that performs a scheduled backup of a DynamoDB table.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jackson Yuan",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.897.0"
+  }
+}
